@@ -1,0 +1,32 @@
+
+Description:
+•	Implemented Message Templates for:
+1) Actual Message which contains length of payload, type of message, payload and default read write methods
+2) Choke which contains message type as CHOKE and no payload
+3) UnChoke which contains message type as UNCHOKE and no payload
+4) Interested which contains message type as INTERESTED and no payload
+5) NotInterested which contains message type as NOTINTERESTED and no payload
+6) Request which has message type as REQUEST and sends request for payloads pieceIndex
+7) Have which has message type as HAVE and says it has following payloads pieceIndex
+8) Piece has message type as PIECE and it merges following payload to actual
+9) BitField has message type as BITFIELD and sends byte[] of payload
+10) Handshake message has header "P2PFILESHARINGPROJ", 10 bits zero, and 4 byte peerID.
+•	Created a peerProcess class to create a thread for each peers
+•	Capturing logs for each message type and event using Event Logger and LogHelper
+•	Created a FileOrganizer class to plit the mesaages into a particular size, merge parts into a file, convert file parts from byte array to actual format and vice versa
+•	Created a ConnectionOrganizer class to keep a track of all the communication between peers
+•	Created a PeerOrganizer class to handle unchocking - chocking behavious among peers
+•	Adding a peer process thread class to call the individual modules of implementation like FileOrganizer, PeerOrganizer, ConnectionOrganizer
+
+How To run
+
+Go to command prompt
+Move to directory where all java code are placed
+run:
+> make
+> ./start(peer_id).sh in different terminal
+
+
+
+
+
